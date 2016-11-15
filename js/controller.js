@@ -1,4 +1,13 @@
-angular.module('quoteBook').controller('MainController', function($scope){
-	$scope.thisAppIsBroken = "This angular app is working";
+angular.module('quoteBook').controller('MainController', function($scope, quoteService){
+	
+
+	$scope.getQuotes = function() {
+		$scope.quotes = quoteService.getQuotes();
+	}();
+
+	$scope.addQuote = quoteService.addQuote;
+	$scope.removeQuote = quoteService.removeQuote;
+
+
 
 })
