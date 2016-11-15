@@ -8,7 +8,14 @@ body {
 }
 
 header {
-
+	color: white;
+	background-color: #333;
+	margin: 0;
+	height: 5vh; 
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 999;
 }
 
 footer {
@@ -16,12 +23,63 @@ footer {
 }
 
 section {
+	
+	padding: 10px 50px;
+}
+
+
+#input_console {
+	margin-top: 5vh;
+}
+
+#quote_container {
+
+}
+
+.filterConsole {
+	width: 100%;
+	margin:auto;
 	padding: 10px;
+	text-align: center;
+	border: 1px black solid;
+	border-radius:10px;
+	background-color: #E6FFF4;
 }
 
 .quoteContainer {
 	margin:10px 0;
 	padding: 10px;
+	background-color: #F6FFFB;
 	border: 1px black solid;
-	border-radius: 15px;
+	border-radius: 0 0 15px 15px;
+	box-shadow: 0 10px 5px #B3B3B3;	
 }
+
+/*.quoteContainer::after {
+	content: '';
+	position:absolute;
+}
+*/
+
+.newText {
+	width: 400px;
+}
+
+.quoteText {
+	font-size: 24px;
+}
+
+.quoteAuthor {
+	font: "Helvetica";
+	color: #717171;
+	text-transform: uppercase;
+}
+
+.options {
+	text-align: right;
+}
+
+.icon {
+	font-size: 20px;
+}
+

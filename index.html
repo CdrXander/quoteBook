@@ -2,17 +2,44 @@
 <html ng-app="quoteBook">
 <head>
 	<title>QuoteBook</title>
+	<!-- Stylesheets -->
 	<link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+	<link href="https://file.myfontastic.com/t48Tj2AF7s9urszhMfQ8w7/icons.css" rel="stylesheet">
+
+
 </head>
 <body ng-controller="MainController">
 
 
 	<header></header>
 	
-	<section>
-		<div ng-repeat="quote in quotes" class="quoteContainer">
-			<p>{{quote.text}}</p>
-			<span>{{quote.author}}</span>
+	<section id="input_console">
+		<form class="form-inline">
+			<div class="filterConsole form-group">
+				<input class="form-control" placeholder="Filter by Quote" ng-model="quoteFilter.text">
+	        	<input class="form-control" placeholder="Filter by Author" ng-model="quoteFilter.author">
+
+			</div>
+
+			<div class="quoteContainer">
+				<input class="newText" ng-model="newQuote.text" placeholder="Quote Text"/>
+				<input ng-model="newQuote.author" placeholder="Quote Author">
+				<div class="options">
+					<span class="icon icon-plus-circled" ng-click="addQuote()"></span>
+				</div>	
+			</div>
+		</form>
+	</section>
+
+	<section id="quote_display">
+		<div ng-repeat="quote in quotes | filter:quoteFilter" class="quoteContainer">
+			<span class="quoteText">"{{quote.text}}"</span>
+			<span class="quoteAuthor">{{quote.author}}</span>
+			<div class="options">
+				<span class="icon icon-cancel-circled" ng-click="removeQuote(quote.text)"></span>
+			</div>	
 		</div>
 	</section>	
 	
@@ -21,9 +48,10 @@
 	<footer></footer>
 
 
-	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
-     <script src="js/app.js"></script>
-     <script src="js/quoteService.js"></script>
-     <script src="js/controller.js"></script>
+	<!-- Scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/quoteService.js"></script>
+    <script src="js/controller.js"></script>
 </body>
 </html>
